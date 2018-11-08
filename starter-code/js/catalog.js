@@ -10,6 +10,8 @@ var cart = new Cart([])
 
 let elForm = document.getElementById('catalog')
 let selectElement = document.getElementById('items')
+let inputQuantity = document.getElementById('quantity')
+let counterInNav = document.getElementById('itemCount')
 
 function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
@@ -34,16 +36,24 @@ function handleSubmit(event) {
 
 }
 
+let selectedItems = []
+let counter = 0
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
-
   // TODO: suss out the item picked from the select list
+  let elSelectedItem = selectElement.value
   // TODO: get the quantity
+  let elSelectedQuantity = inputQuantity.value
   // TODO: using those, add one item to the Cart
+  let newSelectedItem = new CartItem(elSelectedItem, elSelectedQuantity)
+  selectedItems.push(newSelectedItem)
+  counter+=parseInt(inputQuantity.value)
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() {
+  counterInNav.innerText = ' ' + counter
+}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
