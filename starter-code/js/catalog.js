@@ -37,7 +37,7 @@ function handleSubmit(event) {
 
 }
 
-let selectedItems = []
+
 let counter = 0
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
@@ -62,10 +62,7 @@ function updateCartPreview() {
     let cartPreviewItems = document.createElement('div')
     cartContents.appendChild(cartPreviewItems)
     cartPreviewItems.innerText = JSON.stringify(selectedItems[i])
-    selectedItems = []
   }
-
-
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
 }
