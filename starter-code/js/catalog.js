@@ -12,6 +12,7 @@ let elForm = document.getElementById('catalog')
 let selectElement = document.getElementById('items')
 let inputQuantity = document.getElementById('quantity')
 let counterInNav = document.getElementById('itemCount')
+let cartContents = document.getElementById('cartContents')
 
 function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
@@ -57,6 +58,14 @@ function updateCounter() {
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
+  for(let i = 0; i < selectedItems.length; i++){
+    let cartPreviewItems = document.createElement('div')
+    cartContents.appendChild(cartPreviewItems)
+    cartPreviewItems.innerText = JSON.stringify(selectedItems[i])
+    selectedItems = []
+  }
+
+
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
 }
